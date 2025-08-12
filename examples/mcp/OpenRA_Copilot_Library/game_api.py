@@ -696,7 +696,7 @@ class GameAPI:
                 "targets": {"actorId": [target.actor_id]}
             })
             result = self._handle_response(response, "攻击命令执行失败")
-            return result.get("status", 0) > 0
+            return response.get("status", 0) > 0
         except GameAPIError as e:
             if e.code == "COMMAND_EXECUTION_ERROR":
                 return False
